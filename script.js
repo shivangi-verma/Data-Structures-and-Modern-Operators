@@ -270,7 +270,34 @@ GOOD LUCK 😀
 */
 
 // console.log(game.scored);
-for (let [g,n] of game.scored.entries()) {
+for (let [g, n] of game.scored.entries()) {
   console.log(`Goal ${g} : ${n}`);
   // console.log(playerName)
 }
+
+// average = total / length
+// console.log(Object.values(game.odds));
+let total = 0;
+for (let i of Object.values(game.odds)) {
+  total += i;
+}
+
+let average = total / Object.values(game.odds).length;
+console.log(average);
+
+for (let [k, v] of Object.entries(game.odds)) {
+  console.log(
+    `Odd of ${
+      (k == "team1" ? `Victory of ${game.team1} ` : "") ||
+      (k == "x" ? "Draw " : "") ||
+      (k == "team2" ? `Victory of ${game.team2} ` : "")
+    }: ${v}`
+  );
+}
+
+let scorers = {};
+for (let namesofs of game.scored) {
+  scorers.key = namesofs;
+  scorers.values = "1";
+}
+console.log(scorers);
