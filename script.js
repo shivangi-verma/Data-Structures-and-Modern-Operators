@@ -271,7 +271,7 @@ GOOD LUCK 😀
 
 // console.log(game.scored);
 for (let [g, n] of game.scored.entries()) {
-  console.log(`Goal ${g} : ${n}`);
+  console.log(`Goal ${g + 1} : ${n}`);
   // console.log(playerName)
 }
 
@@ -295,9 +295,10 @@ for (let [k, v] of Object.entries(game.odds)) {
   );
 }
 
+console.log(game.scored);
+
 let scorers = {};
-for (let namesofs of game.scored) {
-  scorers.key = namesofs;
-  scorers.values = "1";
+for (let player of game.scored) {
+  scorers[player] = (scorers[player] || 0) + 1;
 }
-console.log(scorers);
+console.log(scorers)
