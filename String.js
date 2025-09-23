@@ -31,45 +31,6 @@ delayed_departure
 
 // GOOD LUCK 😀
 
-// function convertText() {
-//   const text = document.getElementById("textArea").value;
-//   console.log(text);
-//   const words = text.split("\n");
-//   // const textLowered = ;
-//   // split it into an array of words
-//   // const words = text.toLowerCase().split("\n");
-//   console.log(words);
-//   let trimmedWords = [];
-//   for (i of words) {
-//     trimmedWords.push(i.trim().toLowerCase());
-//   }
-//   console.log(trimmedWords);
-
-//   // except the first value convert the rest of the words first letter to uppercase and add to form a string
-//   let final = [];
-//   for (i of trimmedWords) {
-//     final.push(i.split("_"));
-//     // final += i.replace(i[0], i[0].toUpperCase());
-//     console.log(i);
-//   }
-//   // restart the loop in \n encountered
-//   console.log(final);
-// }
-
-// let value = "";
-// let littleArr = [];
-// let secondWord = "";
-// for (i of trimmedWords) {
-//   littleArr = i.split("_");
-// secondWord = littleArr[1].replace(
-// littleArr[1][0],
-// littleArr[1][0].toUpperCase()
-// );
-
-// console.log(littleArr);
-// value = littleArr[0] + secondWord;
-// console.log(value);
-
 function convertText() {
   const text = document.getElementById("textArea").value.toLowerCase();
   const words = text.split("\n");
@@ -79,15 +40,19 @@ function convertText() {
   for (i of words) {
     trimmedWords.push(i.trim());
   }
-  console.log(trimmedWords); 
+  console.log(trimmedWords);
 
-  
   for ([index, val] of trimmedWords.entries()) {
     let value = val.replace(
       /_[a-zA-Z]/g,
       val[val.indexOf("_") + 1].toUpperCase()
     );
-    console.log(value);
+    let tick = "";
+    while (index >= 0) {
+      index--;
+      tick += "✅";
+    }
+    console.log(value.padEnd(20, " "), tick);
   }
 }
 
